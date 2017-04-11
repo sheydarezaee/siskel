@@ -63,7 +63,7 @@ var MovieView = Backbone.View.extend({
   initialize: function() {
 
     this.on('click button');
-    console.log(this.$el);
+    this.model.on('change', this.render, this);
   },
 
   events: {
