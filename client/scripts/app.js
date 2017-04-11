@@ -51,7 +51,6 @@ var AppView = Backbone.View.extend({
 });
 
 var MovieView = Backbone.View.extend({
-
   template: _.template('<div class="movie"> \
                           <div class="like"> \
                             <button><img src="images/<%- like ? \'up\' : \'down\' %>.jpg"></button> \
@@ -62,15 +61,17 @@ var MovieView = Backbone.View.extend({
                         </div>'),
 
   initialize: function() {
-    // your code here
+
+    this.on('click button');
+    console.log(this.$el);
   },
 
   events: {
-    'click button': 'handleClick'
+    'click button': 'handleClick',
   },
 
   handleClick: function() {
-    // your code here
+    this.model.toggleLike();
   },
 
   render: function() {
